@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; InterviewInsight</title>
+	<atom:link href="https://nitinat007.github.io/techystuff_StaticWebsite/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
+	<link>http://nitinat007.github.io/techystuff_StaticWebsite/</link>
+	<description>Resources To Crack Interviews </description>
+	<lastBuildDate>Fri, 03 Jul 2020 02:21:59 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>API Automation Using REST Assured</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/api-automation-using-rest-assured/</link>
+					<comments>https://nitinat007.github.io/techystuff_StaticWebsite/api-automation-using-rest-assured/#respond</comments>
+		
+		<dc:creator><![CDATA[TestUser]]></dc:creator>
+		<pubDate>Sat, 04 Apr 2020 16:48:06 +0000</pubDate>
+				<category><![CDATA[API Automation]]></category>
+		<category><![CDATA[Framework Development]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[Using REST Assured]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">http://3.7.38.176/?p=36</guid>
+
+					<description><![CDATA[this post is sample post for testing code snippets]]></description>
+										<content:encoded><![CDATA[
+<p>this post is sample post for testing code snippets</p>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container"></div></div>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="classic" data-enlighter-highlight="1,2,3,5" data-enlighter-linenumbers="true" data-enlighter-lineoffset="200" data-enlighter-title="" data-enlighter-group="">package org.test.framework.Reporting;
+
+import java.util.HashMap;
+
+/**
+ * Author: nitinkumar
+ * Created Date: 31/03/20
+ * Info: Contains info on automation report location in AWS S3
+ * Sample Report URL: https://ap-southeast-1.console.aws.amazon.com/s3/object/qa-bucket-7351b3a2fcf2f428/qa-automation-reports/reports/runUsersReviewAPIAutomation/Result.html?region=ap-southeast-1&amp;tab=overview
+ **/
+
+public class AWSs3Reports {
+    String s3BucketName = "qa-bucket-7351b3a2fcf2f428";
+    String regionID = "ap-southeast-1";
+    HashMap&lt;String, String> projectNameToAWSReportMapping = new HashMap&lt;String, String>() {{
+        put("Cinema", "runCinemaAPIAutomation");
+        put("UsersReview", "runUsersReviewAPIAutomation");
+        put("UsersComments", "runTestUserCommentsAPIAutomation");
+    }}; //currently 2nd argument is same as project's taskName
+
+    public String getReportURLInAWS(String projectName) {
+        String reportFolderNameInAws = projectNameToAWSReportMapping.get(projectName);
+        String awsReportURL = "https://" + regionID + ".console.aws.amazon.com/s3/object/" + s3BucketName + "/qa-automation-reports/reports/" + reportFolderNameInAws + "/Result.html?region=" + regionID + "&amp;tab=overview";
+        return awsReportURL;
+    }
+}</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://nitinat007.github.io/techystuff_StaticWebsite/api-automation-using-rest-assured/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
