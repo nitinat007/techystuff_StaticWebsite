@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Interview &#8211; InterviewInsight</title>
+	<atom:link href="https://nitinat007.github.io/techystuff_StaticWebsite/category/interview/feed/" rel="self" type="application/rss+xml" />
+	<link>http://nitinat007.github.io/techystuff_StaticWebsite/</link>
+	<description>Resources To Crack Interviews </description>
+	<lastBuildDate>Wed, 15 Jul 2020 13:57:21 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>Miscellanies: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/miscellanies-quention-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Tue, 14 Jul 2020 15:36:54 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=361</guid>
+
+					<description><![CDATA[Give an example of Enum in Java. Subject sub = Subject.Java;&#160; // assign Java to sub&#160; Subject.values();&#160; //returns all values of Subject Subject.valueOf(“Java”);&#160; //return particular value of Subject&#160; Other example of enum is below: O/P:Age of Smith is 11years What&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>Give an example of Enum in Java.</strong></p>
+
+
+
+<pre class="wp-block-code"><code>enum Subject           //Enumeration 
+{
+ Java, Cpp, C, Dbms
+}</code></pre>
+
+
+
+<p>Subject sub = Subject.Java;&nbsp; // assign Java to sub&nbsp;</p>
+
+
+
+<p>Subject.values();&nbsp; //returns all values of Subject</p>
+
+
+
+<p>Subject.valueOf(“Java”);&nbsp; //return particular value of Subject&nbsp;</p>
+
+
+
+<p>Other example of enum is below:</p>
+
+
+
+<pre class="wp-block-code"><code>enum Student {
+   Smith(11), Donald(15), Sam(13), Amit(9);
+   private int age;
+   int getAge() {
+       return age;
+   }
+   Student(int age)  //constructor defined in enum Student
+   {
+       this.age = age;
+   }
+}
+class EnumDemo {
+   public static void main(String args&#91;]) {
+       System.out.println("Age of Smith is " + Student.Smith.getAge() + "years");
+   }
+}
+</code></pre>
+
+
+
+<p><em>O/P:<br></em><em>Age of Smith is 11years</em></p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p><strong>What is the best way to implement a singleton class in Java?</strong></p>
+
+
+
+<p>The best way to implement a singleton as per Josh Bloch is to use an enum type for the singleton. Because Java ensures that only a single instance of an enum is ever created, the singleton class implemented via enums is safe from reflection and serialization attacks.</p>
+
+
+
+<pre class="wp-block-code"><code>class Demonstration {
+    public static void main( String args&#91;] ) {
+        Superman superman = Superman.INSTANCE;
+        superman.fly();
+    }
+}
+enum Superman {
+    INSTANCE;
+    private final String name = "Clark Kent";
+    private String residence = "USA";
+    public void fly() {
+        System.out.println("I am flyyyyinggggg ...");
+    }
+}
+</code></pre>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<hr class="wp-block-separator"/>
+</div></div>
+</div></div>
+
+
+
+<p><strong>What is the difference between Static and dynamic polymorphism</strong>?</p>
+
+
+
+<p>Polymorphism which is resolved during compiler time is known as <strong>static polymorphism</strong>. Method overloading is an example of compile-time polymorphism. <strong>Dynamic/Runtime polymorphism</strong> is a process in which a call to an overridden method is resolved at runtime</p>
+
+
+
+<p>Like an anonymous class, there is an anonymous array. Eg:  new int[] { 1, 2, 3, 4};</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p><strong>What is Generics in Java?</strong></p>
+
+
+
+<p>With Generics (introduced in Java 5), it has become possible to create a single class ,interface or method that automatically works with all types of data(Integer, String, Float etc). It has expanded the ability to reuse the code safely and easily.</p>
+
+
+
+<p><strong>Write a program to demonstrate Generic Class.</strong></p>
+
+
+
+<pre class="wp-block-code"><code>public class GenericsDemo {
+   public static void main(String&#91;] args) {
+       Gen&lt;String, Integer> obj = new Gen&lt;>("Nitin", 1);
+       System.out.println(obj.getName());
+       System.out.println(obj.getValue());
+       Gen&lt;String, String> obj2 = new Gen&lt;>("Aman", "One");
+       System.out.println(obj2.getName());
+       System.out.println(obj2.getValue());
+   }
+}
+
+class Gen&lt;T1, T2> {
+   T1 name;
+   T2 value;
+
+   Gen(T1 o1, T2 o2) {
+       name = o1;
+       value = o2;
+   }
+
+   public T1 getName() {
+       return name;
+   }
+
+   public T2 getValue() {
+       return value;
+   }
+}</code></pre>
+
+
+
+<p>O/P:&nbsp;</p>
+
+
+
+<p>Nitin</p>
+
+
+
+<p>1</p>
+
+
+
+<p>Aman</p>
+
+
+
+<p>One</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p><strong>Can we create an array of Generics?&nbsp;</strong></p>
+
+
+
+<p>T a[] = new T[10];&nbsp; //Array of generic type is not allowed</p>
+
+
+
+<p><strong>Write a program to demonstrate Generic method in Java</strong></p>
+
+
+
+<pre class="wp-block-code"><code>public class GenericsDemo {
+   public static void main(String&#91;] args) {
+       display(new String("SomeString"),new Integer(1));
+   }
+   static &lt;T,U> void display(T t, U u){
+       System.out.println("t is from "+t.getClass().getName()+ " class");
+       System.out.println("u is from "+u.getClass().getName()+ " class");
+   }
+}</code></pre>
+
+
+
+<p><strong>Write a program to demonstrate Generic Constructor in Java</strong></p>
+
+
+
+<pre class="wp-block-code"><code>public class GenericsDemo {
+  &lt;T extends Number> GenericsDemo(T t){ //generic constructor
+      System.out.println("Constructor creation: t is from "+t.getClass().getName()+ " class");
+  }
+
+   public static void main(String&#91;] args) {
+       GenericsDemo gd= new GenericsDemo(new Integer("1"));
+       GenericsDemo gd1= new GenericsDemo(new Double("1.1"));
+   }
+}</code></pre>
+
+
+
+<p>O/P:</p>
+
+
+
+<p><em>Constructor creation: t is from java.lang.Integer class</em></p>
+
+
+
+<p><em>Constructor creation: t is from java.lang.Double class</em></p>
+
+
+
+<p>//T can be only be replaced by Number class data itself or any of its subclass.</p>
+
+
+
+<hr class="wp-block-separator"/>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Collections: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/collections-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 13:24:19 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=340</guid>
+
+					<description><![CDATA[How can you sort a collection of objects based on a particular variable’s value?&#160; We can use Comparator or Comparable interface. They are used to sort an array/list of objects of a class.&#160; Arrays.sort(arrayObject) // sorting array Collections.sort(al) //sorting arrayList&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>How can you sort a collection of objects based on a particular variable’s value?&nbsp;</strong></p>
+
+
+
+<p>We can use Comparator or Comparable<strong> </strong>interface.<strong> </strong>They are used to sort an array/list of objects of a class.&nbsp;</p>
+
+
+
+<p>Arrays.sort(arrayObject) // sorting array</p>
+
+
+
+<p>Collections.sort(al) //sorting arrayList (al) using default way or comparable way</p>
+
+
+
+<p>Collections.sort(al, new AgeComparator());&nbsp; //sorting arrayList (al) using comparator</p>
+
+
+
+<p>Collections.sort(al, Collections.reverseOrder()); &nbsp; // sorting al in reverse order</p>
+
+
+
+<p>//Comparable example</p>
+
+
+
+<p>class Student implements Comparable<strong>&lt;Student&gt;</strong>{</p>
+
+
+
+<p>..</p>
+
+
+
+<p>public int compareTo(Student st) {</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (this.rollno &#8211; st.rollno);</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+
+
+
+<p>}</p>
+
+
+
+<p>..</p>
+
+
+
+<p>Collections.sort(studentArrayListObject);&nbsp;&nbsp;</p>
+
+
+
+<p>..</p>
+
+
+
+<p>//Comparator Example</p>
+
+
+
+<p>class CustomSort implements Comparator&lt;Student&gt;&nbsp;</p>
+
+
+
+<p>{</p>
+
+
+
+<p>public int compare(Student a, Student b)&nbsp;</p>
+
+
+
+<p>{&nbsp;</p>
+
+
+
+<p>return a.rollno &#8211; b.rollno;&nbsp;</p>
+
+
+
+<p>// return a.name.compareTo(b.name);&nbsp;</p>
+
+
+
+<p>}&nbsp;</p>
+
+
+
+<p>}</p>
+
+
+
+<p>..</p>
+
+
+
+<p>Collections.sort(al,new CustomSort());&nbsp;&nbsp;</p>
+
+
+
+<p>..</p>
+
+
+
+<p><strong>What are the common interfaces and their implementations in the Collection framework of Java?&nbsp;</strong></p>
+
+
+
+<ul><li>List interface is implemented by the classes ArrayList, LinkedList, Vector, and Stack.</li><li>Vector, Stack are synchronized. ArrayList, LinkedList are non-synchronized</li><li>Queue interface is implemented by PriorityQueue, Deque (doubly ended queue)</li><li>Set is implemented by HashSet, LinkedHashSet, and TreeSet</li><li>LinkedHashSet class represents the LinkedList implementation of Set Interface. It maintains the insertion order and permits null elements</li></ul>
+
+
+
+<p><strong>HashSet vs TreeSet. Which one should I use and why?</strong></p>
+
+
+
+<p>HashSet : Better time complexity. No order is maintained, Can store null value</p>
+
+
+
+<p>TreeSet : Maintains order in ascending order, Can’t store null value</p>
+
+
+
+<p>Common thing : No duplicate, non synchronized,&nbsp;</p>
+
+
+
+<p><strong>What is the difference between HashMap, Hashtable and SynchronizedMap ?</strong></p>
+
+
+
+<p>All of them use Map data structure to keep the data but one main difference is locking.</p>
+
+
+
+<p>1.HashMap</p>
+
+
+
+<ul><li>HashMap is an implementation of Map data structure</li><li>for single threaded environment</li><li>Not thread-safe</li><li>can keep one null key and multiple null value.</li></ul>
+
+
+
+<p>2. HashTable</p>
+
+
+
+<ul><li>Hashtable is an implementation of Map data structure</li><li>This is a legacy class in which all methods are synchronized on Hashtable instances using <em>synchronized </em>keyword.</li><li>Thread-safe as it’s method are synchronized</li></ul>
+
+
+
+<p>3. SynchronizedMap</p>
+
+
+
+<ul><li>This is wrapper of Map, and can be initialized by using <strong>Collections.synchcronizedMap(new HashMap())</strong></li><li>similar to Hashtable</li><li>The only difference between Hashtable and Synchronized Map is that later is not a legacy and you can wrap any Map to create it’s synchronized version by using Collections.synchronizedMap() method.</li></ul>
+
+
+
+<p><strong>What is&nbsp; ConcurrentHashMap? Why should you prefer using it over Hashtable?</strong> (introduced in java 1.5)</p>
+
+
+
+<ul><li>ConcurrentHashMap implements Map data structure and also provides thread safety like Hashtable.</li><li>It works by dividing the complete hashtable array into segments or portions and allowing parallel access to those segments.</li><li>The locking is at a much finer granularity at a hashmap bucket level.</li><li>Reads can happen very fast while writes are done with a lock on segment level or bucket level.</li><li>Use ConcurrentHashMap when you need very high concurrency in the application.</li><li>It is thread-safe without synchronizing the whole map. There is no locking at the object level.</li><li>ConcurrentHashMap doesn’t throw a ConcurrentModificationException if one thread tries to modify it while another is iterating over it.</li><li>ConcurrentHashMap does not allow NULL values, so key can not be null in ConcurrentHashMap</li><li>ConcurrentHashMap doesn’t throw a ConcurrentModificationException if one thread tries to modify it, while another is iterating over it. ConcurrentHashMap uses fail safe iterator (not fail fast iterator). But if a hashtable is structurally modified during iteration, concurrentModificationException occurs.  ConcurrentHashMap makes a copy of the internal data structure (object array) and iterates over the copied data structure.</li><li>Ways to initialize ConcurrentHashMap:</li></ul>
+
+
+
+<p>ConcurrentHashMap&lt;String,String&gt; premiumPhone = <strong>new</strong> ConcurrentHashMap&lt;String,String&gt;();</p>
+
+
+
+<p>ConcurrentHashMap&lt;String,String&gt; premiumPhone&nbsp; = new ConcurrentHashMap<em> (int initialCapacity, float loadFactor, int concurrencyLevel);</em></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Exceptions: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/exceptions-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 13:22:14 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=338</guid>
+
+					<description><![CDATA[What is Exception and Error in Java? Exception and error classes are subclasses of Throwable class.&#160; Exceptions: At runtime i.e during the execution of a program, an unwanted or unexpected event occurs that disrupts the normal flow of the program’s&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>What is Exception and Error in Java?</strong></p>
+
+
+
+<p>Exception and error classes are subclasses of Throwable class.&nbsp;</p>
+
+
+
+<p>Exceptions: At runtime i.e during the execution of a program, an unwanted or unexpected event occurs that disrupts the normal flow of the program’s instructions.</p>
+
+
+
+<p>Error: This can not be handled in code. (Neither does the compiler force you to catch this). Examples are OutOfMemory, Stackoverflow .</p>
+
+
+
+<p><strong>How is Exception categorized?&nbsp;</strong></p>
+
+
+
+<p>Exceptions are of two type</p>
+
+
+
+<ol><li>CheckedException: These exceptions are checked by compiler at compile time. Examples are filenotfound, IOException, InterruptedException</li><li>UncheckedException: ClassCastException, NPE, ArrayIndexOutOfBoundException, ClassCastException etc. They are caused due to programming flaws. They are also called Runtime Exceptions. UncheckedException should not be caught as there might not be a way to recover from that in the catch, though we can do so by <em>catch (</em><em>RuntimeException</em><em> re).&nbsp;</em></li></ol>
+
+
+
+<p><strong>Explain try-with-resources in Java.</strong></p>
+
+
+
+<p>JDK 7 introduces a new version of try statement known as try-with-resources statement. You do not have to explicitly close the resources. </p>
+
+
+
+<pre class="wp-block-code"><code>   try (BufferedReader br = new BufferedReader(new FileReader("d:\\myfile.txt"))) {
+      String str;
+      while ((str = br.readLine()) != null) {
+          System.out.println(str);
+      }
+  } catch (IOException ie) {
+      System.out.println("exception");
+  }</code></pre>
+
+
+
+<p><strong>How can you create your own resource for try-with-resources in Java?</strong></p>
+
+
+
+<p>You can create your own resource by implementing AutoClosable interface:</p>
+
+
+
+<pre class="wp-block-code"><code>public class MyResource implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        System.out.println("Closed MyResource");
+    }
+}
+</code></pre>
+
+
+
+<div class="wp-block-group has-vivid-cyan-blue-color has-text-color"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group has-very-dark-gray-color has-text-color"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container"></div></div>
+</div></div>
+</div></div>
+</div></div>
+
+
+
+<p>Resources that were defined/acquired first will be closed last.</p>
+
+
+
+<p><strong>Explain how you create a User defined exception.</strong></p>
+
+
+
+<p>Below is an example of User Defined Exception</p>
+
+
+
+<pre class="wp-block-code"><code>class MyException extends Exception
+{
+   private int ex;
+   MyException(int a)
+   {
+    ex=a;
+   }
+   
+   MyException(String exceptionMessage, Throwable cause)    {
+    super(exceptionMessage, cause);
+   }
+   public String toString()
+   {
+    return "MyException&#91;" + ex +"] is less than zero";
+   }
+}
+
+class Test
+{
+   static void sum(int a,int b) throws MyException
+   {
+    if(a&lt;0)
+    {
+     throw new MyException(a);  //calling constructor of user-defined exception class
+    }
+    else
+    {
+     System.out.println(a+b);
+    }
+   }
+
+   public static void main(String&#91;] args)
+   {
+    try
+    {
+     sum(-10, 10);
+    }
+    catch(MyException me)
+    {
+     System.out.println(me);  //it calls the toString() method of user-defined Exception
+    }
+   }
+}
+</code></pre>
+
+
+
+<p><strong>How do you show a “caused by” statement for an Exception?</strong></p>
+
+
+
+<p>In the above (previous question) code if MyException(String exceptionMessage, Throwable cause) constructor is called,</p>
+
+
+
+<p>&nbsp;you see stack trace <em>(higher level Exception message)</em> along with <strong>Caused by</strong> statement <em>(i.e lower level message)</em>. Screenshot explains this&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh6.googleusercontent.com/-RwlB2UPa9C3B7Q-kTN-x95QNJXltNRFwPnhB8PJlltq7dt7JcQHENzQ0iBIk3SxVyd-DOGKQNvdVaJnY4jHA-INcwQOsMspZDXDJZtgwevI2J3_1CeRpZRPsOkR5iJ0KN7_blvI" alt=""/></figure>
+
+
+
+<p><strong>Can a subclass method declare an exception if the superclass method doesn&#8217;t throw any exception?</strong></p>
+
+
+
+<p>If the super class method does not declare any exception, then the subclass overridden method cannot declare checked exceptions but it can declare unchecked exceptions.</p>
+
+
+
+<p>If the Super class method throws an object of NullPointerException class, then the Subclass method can either throw the same exception, or can throw no exception, but it can never throw an object of Exception class (parent of NullPointerException class).</p>
+
+
+
+<p><strong>What is a Chained Exception in Java?</strong>&nbsp;</p>
+
+
+
+<p>Chained Exception was added to Java in JDK 1.4. This feature allows you to relate one exception with another exception.</p>
+
+
+
+<p>getCause() and initCause() are the two methods added to Throwable class.<br><br>getCause() method returns the actual cause (lower level info) associated with the current exception.<br>initCause() set an underlying cause(exception) with invoking exception. eg:</p>
+
+
+
+<pre class="wp-block-code"><code>import java.io.IOException;
+public class ChainedException
+ {
+  public static void divide(int a, int b)
+  {
+   if(b==0)
+   {
+    ArithmeticException ae = new ArithmeticException("top layer");
+    ae.initCause( new IOException("cause") );
+    throw ae;
+   }
+   else
+   {
+    System.out.println(a/b);
+   }
+  }
+
+ public static void main(String&#91;] args)
+ {
+  try {
+   divide(5, 0);
+  }
+  catch(ArithmeticException ae) {
+   System.out.println( "caught : " +ae);
+   System.out.println("actual cause: "+ae.getCause());
+  }
+ }
+}</code></pre>
+
+
+
+<p>O/P:<br>caught:java.lang.ArithmeticException: top layer<br>actual cause: java.io.IOException: cause</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>I/O: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/i-o-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 13:21:52 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=336</guid>
+
+					<description><![CDATA[What are the packages for IO in Java? java.io (stream IO) java.nio (new io since java 4) What is an encoding scheme? Every file uses some encoding schemes to map its character. Encoding schemes is an algorithm which maps character&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>What are the packages for IO in Java?</strong></p>
+
+
+
+<p>java.io (stream IO)</p>
+
+
+
+<p>java.nio (new io since java 4)</p>
+
+
+
+<p><strong>What is an encoding scheme?</strong></p>
+
+
+
+<p>Every file uses some encoding schemes to map its character. Encoding schemes is an algorithm which maps character to hexadecimal numbers and whose binary representation is used. Eg</p>
+
+
+
+<p>Encoding:&nbsp; ‘a’ → 61(hexadecimal) → 01100001(binary)</p>
+
+
+
+<p>Decoding: 01100001 → 61 → ‘a’</p>
+
+
+
+<p>Encoding Schemes example : ASCII, UTF-16, UTF-32. More than half of web pages are encoded in UTF-8</p>
+
+
+
+<p><strong>What are Streams? What are the different types of Streams?</strong></p>
+
+
+
+<p>Java performs I/O through Streams.</p>
+
+
+
+<p>Types of streams:</p>
+
+
+
+<p>1) byte stream: for IO of bytes (handling binary data eg images,audio,video)</p>
+
+
+
+<p>2) character stream: for IO of characters (for handling character data eg text files)</p>
+
+
+
+<p><strong>What are different classes for IO in Java?&nbsp;</strong></p>
+
+
+
+<p><strong></strong><strong>OR</strong></p>
+
+
+
+<p><strong>Explain InputStream, OutputStream, Reader, Writer and classes extending these Classes.</strong></p>
+
+
+
+<p>InputStream is an abstract class with overloaded read() abstract methods and is used for reading Byte Stream. OutputStream is an abstract class with overloaded write() abstract methods and is used for writing Byte Stream. Reader is an abstract class for reading Character Stream. Writer is an abstract calls for writing Character Stream.&nbsp;</p>
+
+
+
+<p>InputStreamReader can also be used for reading character streams. Both InputStream &amp; OutputStream read/write data in 8-bit bytes.</p>
+
+
+
+<p>Classes extending abstract InputStream: FileInputStream, ObjectInputStream, ByteArrayInputStream etc</p>
+
+
+
+<p>Classes extending abstract OutputStream: FileOutputStream, ObjectOutputStream, PrintStream etc</p>
+
+
+
+<p>Classes extending abstract Reader: BufferedReader,FileReader, StringReader etc</p>
+
+
+
+<p>Classes extending abstract Writer: BufferedWriter,FileWriter, StringWriter, PrintWriter etc</p>
+
+
+
+<p>It is recommended to use FileReader for character Stream and InputStreamReader for byte stream.</p>
+
+
+
+<p><strong>Why do we use BufferedInputStream &amp; BufferedOutputStream&nbsp; in Java? Also&nbsp;</strong></p>
+
+
+
+<p>Reading and writing using byte by byte is way too expensive as it needs disk access. We use buffering to overcome this. Here we read/write a block of bytes into a memory buffer (byte array) and finally read/write (flush) from this buffer in a single IO operation. Default size of the memory buffer is 8192 byte,which can be changed by a programmer. We have BufferedInputStream &amp; BufferedOutputStream for this.&nbsp; These streams do not work independently. They work with other streams like FileInput/FileOutput streams. They have buffering as the main functionality and do not deal with reading and writing. Eg</p>
+
+
+
+<p>BufferedInputStream bis = new BufferedInputStream(new FileInputStream(“go.jpg”));</p>
+
+
+
+<p><strong>What is the design Pattern used for Reading and Writing using BufferedInputStream, BufferedReader etc?&nbsp;</strong></p>
+
+
+
+<p>This design pattern is called a decorator design pattern as one object is wrapping another object. Both BufferedInputStream and FileInputStream have a common super type. Note that it is following the design principle of Open-For-Extension-Close-For-Modification.</p>
+
+
+
+<p>bis.read() method will additionally add buffering functionality to fis.read().&nbsp;</p>
+
+
+
+<p><strong>What are the methods for reading using BufferedReader and Scanner?</strong></p>
+
+
+
+<p>BufferedReader has methods like read(), readLine(). Scanner has nextInt(),next(),nextLong(),hasNext() ,hasInt() etc</p>
+
+
+
+<p><strong>Write code to read from a file.</strong></p>
+
+
+
+<p>Reading from file:</p>
+
+
+
+<pre class="wp-block-code"><code> File fl = new File("d:/myfile.txt");
+   BufferedReader br = new   BufferedReader(new FileReader(fl)) ;
+   while ((String str=br.readLine())!=null)
+   {
+    System.out.println(str);
+   }
+   br.close();
+   fl.close();</code></pre>
+
+
+
+<p><strong>Write code to write to a file.</strong></p>
+
+
+
+<p>Writing to a file:</p>
+
+
+
+<pre class="wp-block-code"><code>  File fl = new File("d:/myfile.txt");
+   String str="Write this string to my file";
+   FileWriter fw = new FileWriter(fl) ;
+   fw.write(str);
+   fw.close();
+   fl.close();</code></pre>
+
+
+
+<p><strong>How do you read stream (image,video,audio) from your drive</strong></p>
+
+
+
+<p>Reading byte stream:</p>
+
+
+
+<pre class="wp-block-code"><code> try{    
+            FileInputStream fin=new FileInputStream("D:\\testout.txt");    
+            int i=0;    
+            while((i=fin.read())!=-1){    
+             System.out.print((char)i);    
+            }    
+            fin.close();    
+          }catch(Exception e){System.out.println(e);}    
+         } </code></pre>
+
+
+
+<p>Similarly Use FileOutputStream to write byte stream.</p>
+
+
+
+<p><strong>Why do we club BufferedReader with InputStreamReader for reading in Java?</strong></p>
+
+
+
+<p>BufferedReader reads a couple of characters from the specified stream and stores it in a buffer. This makes input faster. InputStreamReader reads only one character from a specified stream and remaining characters still remain in the stream.</p>
+
+
+
+<p><strong>What is Serialisation and Deserialization in Java?</strong></p>
+
+
+
+<p>Serialization is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams. &nbsp;ObjectOutputStream connected to a FileOutputStream. Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory. Deserialization does not call the constructor of the class. But if there is any non serializable ancestor, then the ancestor constructor is run.&nbsp;</p>
+
+
+
+<p><strong>Explain</strong> <strong>Serialisation and Deserialization with example</strong>Serialization:(Studentinfo implements serializable interface) </p>
+
+
+
+<pre class="wp-block-code"><code>Studentinfo si = new studentinfo("Abhi", 104, "110044");
+            FileOutputStream fos = new FileOutputStream("student.ser");
+            Objectoutputstream oos = new ObjectOutputStream(fos);
+            oos.writeObject(si);
+            oos.close();
+            fos.close();
+</code></pre>
+
+
+
+<p>Deserialization:</p>
+
+
+
+<pre class="wp-block-code"><code>FileInputStream fis = new FileInputStream("student.ser");
+      ObjectInputStream ois = new ObjectInputStream(fis);
+      Studentinfo si = (studentinfo)ois.readObject();</code></pre>
+
+
+
+<p><strong>Does the static field of a serializable class serialize?</strong></p>
+
+
+
+<p>Static fields do not get serialized.</p>
+
+
+
+<p><strong>How can you prevent a data member from getting serialized?</strong></p>
+
+
+
+<p><strong>Transient</strong> keyword will prevent that data member from being serialized (deserialized value will be default value of the type).&nbsp;</p>
+
+
+
+<p><strong>What happens to the objects that the serializing object references to? Do they also get serialized during serialization?</strong></p>
+
+
+
+<p>If an object is serialized then any object it references is also serialized (i.e saves the entire object graph). If super class is serializable then subclass is automatically serializable.</p>
+
+
+
+<p><strong>How do you deserialize an object whose class has changed/evolved over time?</strong></p>
+
+
+
+<p>Deserialization fails if the class for which object was serialized has evolved. Serializable classes get a default serialVersionUID generated for that class based on class structure during serialization. When an object is deserialized this ID is compared b/w object and class. To allow the object deserialization even when class has changed, we need to add <em>static final long serialVersionUID=8883434…&#8230;8888L;&nbsp;</em></p>
+
+
+
+<p>Value of serialVersionUID can be generated using a tool <em>serialver </em>provided in JDK which takes a class file location argument.&nbsp;</p>
+
+
+
+<p><strong>How can you improve the performance of ObjectOutputStream?</strong></p>
+
+
+
+<p>We can also chain ObjectOutputStream<strong> </strong>with BufferedOutputStream for improving performance, like this</p>
+
+
+
+<p>Objectoutputstream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(“abc.ser”)));</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Multi-threading: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/multi-threading-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 13:20:02 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=334</guid>
+
+					<description><![CDATA[]]></description>
+										<content:encoded><![CDATA[
+<pre class="wp-block-code"><code>public class MyResource implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        System.out.println("Closed MyResource");
+    }
+}
+</code></pre>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Class &#038; Interface: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/class-interface-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 13:18:03 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=332</guid>
+
+					<description><![CDATA[What is the difference between an abstract class and an Interface in Java? Below are the differences between an abstract class and an Interface You can not extend more than one class because Java does not support multiple inheritances but&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>What is the difference between an abstract class and an Interface in Java?</strong></p>
+
+
+
+<p>Below are the differences between an abstract class and an Interface</p>
+
+
+
+<ol><li>You can not extend more than one class because Java does not support multiple inheritances but you can implement multiple inheritance in Java.</li></ol>
+
+
+
+<ol start="2"><li>&nbsp;Interface is better suited for Type declaration and abstract class is more suited for code reuse and evolution perspective.</li><li>&nbsp;Abstract classes are slightly faster than interfaces because interface involves a search before calling any overridden method in Java.</li></ol>
+
+
+
+<ol start="4"><li>When you add a new method in an existing interface it breaks all its implementation and you need to provide an implementation in all clients. By using an abstract class you can provide a default implementation for a new method in the superclass without breaking existing clients. Java 8 onwards we can have default implementation of methods in an interface.</li></ol>
+
+
+
+<p><strong>Why was the default implementation of interface introduced in Java 8 ?</strong></p>
+
+
+
+<p>Default implementation of an interface allows us to add new methods to an interface that are automatically available in the implementations. Thus, there&#8217;s no need to modify the implementing classes. In this way, backward compatibility is neatly preserved without having to refactor the implementations. With java 8 interfaces can contain implementation of default methods and static methods. Default method must have a keyword <strong>default</strong><strong>.&nbsp;</strong></p>
+
+
+
+<p><strong>When to use an interface and when to use an abstract class?</strong></p>
+
+
+
+<p>When you know partial behavior of a class you can have a predefined method for known behavior and for declare methods whose behavior is unknown/may vary as per the implementation in an abstract method. Eg. HttpServlet is an abstract class. Methods for creation and destruction are predefined and developers have to write their own implementation for certain other methods (like service(ServletRequest req,ServletResponse res) ).</p>
+
+
+
+<p>Interface is created when you know only the contract and you do not know the behavior at the time of creation. Any class that implements this interface has to write behaviour of each and every contract.&nbsp; Eg: Map is interface , HashMap , HashTable , TreeMap , WeekHashMap are implementation of the interface.&nbsp;</p>
+
+
+
+<p>In General<strong> prefer interfaces to abstract classes</strong>. Additional capability (mixins) can be added to a class by implementing an interface. Even when a class already extends a class (or already implements another interface) we can still implement this mixin interface. This would not be possible with abstract class.&nbsp;</p>
+
+
+
+<p>Prefer abstract class over interface if you have to define core identity of subclass. I.e you know the abstract behavior (identity) of sub classes and state. Programmer tries to give skeletal implementation using abstract class. Eg: Animal class with variables defined (eg name, makeNoise,isWild etc) should be an abstract class rather than an interface.</p>
+
+
+
+<p><strong>Can we have a main() method in an interface ?</strong></p>
+
+
+
+<p>Yes, We can have a psvm (public static void main) method in an interface from Java 8 onwards. Because static methods are allowed in an interface starting from Java 8.&nbsp;</p>
+
+
+
+<p>Interfaces don’t allow the use of static, until Java 7.</p>
+
+
+
+<p>But of course, you cannot override the main method, since psvm is a static method.</p>
+
+
+
+<p><strong>What is the difference between Composition and Inheritance in OOP?&nbsp;</strong>Though both Composition and Inheritance allows you to reuse code, formerly is more flexible than later. <strong>, </strong>Composition allows a class to be composed of multiple parts whereas inheritance allows a class to be derived from another class. Composition allows the class to get an additional feature at runtime</p>
+
+
+
+<p><strong>Explain the Externalizable interface in Java</strong></p>
+
+
+
+<p>The Serializable interface gets us automatic serialization capability for objects of our class. On the other hand the Externalizable interface provides a way to implement a custom serialization mechanism. A class that implements the Externalizable interface is responsible to save and restore the contents of its own instances.</p>
+
+
+
+<p>The Externalizable interface extends the Serializable interface and provides two methods to serialize and deserialize an object, writeExternal() and readExternal().</p>
+
+
+
+<p><strong>What is the Marker interface in Java</strong>?</p>
+
+
+
+<p>There are few interfaces which do not have any method or field. Marker interface is used to inform the compiler that the class implementing it has some special behaviour or meaning.&nbsp; However marker interfaces have been deprecated since Java 5, they were replaced by Annotations. eg:&nbsp;</p>
+
+
+
+<p>java.io.serializable<br>java.lang.Cloneable → provide ability to clone the object.<br>java.rmi.Remote<br>java.util.RandomAccess → provides utility for accessing random element faster</p>
+
+
+
+<p><strong>What is Nested Class ? </strong>&nbsp;</p>
+
+
+
+<p>Nested class is a class with another class. Example : <em>HashMap</em> class in collections has a static class <em>Node </em>within it<em>, </em>with method getKey().<em>&nbsp;</em></p>
+
+
+
+<p>Nested Class is of two type :&nbsp;</p>
+
+
+
+<ol><li>Inner Class</li><li>Static Member Class</li></ol>
+
+
+
+<p><strong>What is Inner Class?</strong></p>
+
+
+
+<p>If you want to create a class which is to be used only by the enclosing class, then it is not necessary to create a separate class file for that. Instead, you can add it as &#8220;Inner Class&#8221;, i.e class within class.</p>
+
+
+
+<p>If a class named <em>Outer</em> has a class named <em>Inner</em> within it, this is how you instantiate the inner class</p>
+
+
+
+<p>&nbsp; Outer ot = new Outer();<br>Outer.Inner innerObject = ot.new Inner();</p>
+
+
+
+<p>Accessing methods ( Here <em>Outer</em> is the outer class name and <em>Inner</em> is the inner class name)</p>
+
+
+
+<ol><li>Outer class can access inner class method by: innerObject.innerMethod()</li><li>Inner class can access the outer class method by: outerMethod(). Here outerMethod of Outer class is invoked only if Inner class does not have the same method.</li><li>From the inner class this.go() will always refer to the inner class’s go() method.</li><li>From the inner class Outer.this.go() will always refer to the Outer class’s go() method.</li></ol>
+
+
+
+<p><strong>What is Static Member Class?</strong></p>
+
+
+
+<p>A static class created inside a class is called a static member class. It can access only static members (variables, methods including private) of outer class. We should favour static member class over Inner class.&nbsp;</p>
+
+
+
+<p>If a class named <em>Outer</em> has a static class named <em>Inner</em> within it, this is how you instantiate the inner class</p>
+
+
+
+<p>&nbsp;Outer.Inner obj=new Outer.Inner();&nbsp;&nbsp;</p>
+
+
+
+<p>Accessing static field: Outer.StaticClass.staticVariable</p>
+
+
+
+<p><strong>When do you use Inner Class Vs Static Member Class?</strong></p>
+
+
+
+<p>Static Member Class can not access instance members of enclosing class whereas Inner Class can access instance members of enclosing class. If the class within the enclosing class needs access to the outer (enclosing) class, we declare Inner class than static member class.</p>
+
+
+
+<p><strong>What are the key points to note about nested class? How is it different from (Outer) Class?</strong></p>
+
+
+
+<ol><li>Nested classes can have all access levels whereas top-level (Outer) class can have only public or default access.&nbsp;</li><li>Outer class can access any member (including private) of nested class and also nested class can access any member of outer class.&nbsp;</li><li>For outer and inner class named <em>Outer</em> and <em>Nested</em>, compiler generates .class file named Outer.class and Outer$Nested.class</li><li>You can not have a static member within <em>Inner</em> class. This will throw a compile time error as in order to get access to the inner class you need to create an instance of outer class (say outerObject)&nbsp; and then access the static member by outerObject.memberName. It does not make sense to access it by objectName.memberName for a static member.</li></ol>
+
+
+
+<p><strong>What is an Anonymous class in Java?</strong></p>
+
+
+
+<p>It is a class that does not have a name.&nbsp;&nbsp;</p>
+
+
+
+<p>Example of anonymous class: Here is an example of creating a thread where the class implementing Runnable interface has no name.</p>
+
+
+
+<p>Thread t = <strong>new </strong>Thread(<strong>new </strong>Runnable() {</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;@Override</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;<strong>public void </strong>run() {</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>// something</em></p>
+
+
+
+<p><em>&nbsp;&nbsp;&nbsp;</em>}</p>
+
+
+
+<p>});</p>
+
+
+
+<p><strong>What is a</strong> <strong>Local class?</strong></p>
+
+
+
+<p>These are classes that are defined within a method. We cannot use private, public, or protected access modifiers with local inner class. Only abstract and final modifiers are allowed. This class is mostly declared when the scope of a class is only within the method. They are rarely used.&nbsp;</p>
+
+
+
+<p><strong>What are Access Modifiers?&nbsp;</strong></p>
+
+
+
+<p>Access Modifiers: public, private, default , protected.&nbsp;</p>
+
+
+
+<p><strong>What is the difference between default and protected modifiers?</strong></p>
+
+
+
+<p>Default: Scope is within a package</p>
+
+
+
+<p>Protected: method defined as protected can be accessed within a package and any class in another package which is inheriting the class with protected method.&nbsp;</p>
+
+
+
+<p>Class can’t have a protected modifier (only method can have).</p>
+
+
+
+<p><strong>What are Non-Access Modifiers?&nbsp;</strong></p>
+
+
+
+<p>Non-Access Modifiers: static, abstract, synchronized, native, volatile, transient, etc.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Memory: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/memory-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 13:17:27 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=331</guid>
+
+					<description><![CDATA[How can we call GC (garbage collection) in code? gc() method is present in System and Runtime class. Call either System.gc() or System.getRuntime.gc(). protected void finalize() method in Object class gets invoked by the daemon thread named GC thread. A&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>How can we call GC (garbage collection) in code?</strong></p>
+
+
+
+<p>gc() method is present in System and Runtime class. Call either <em>System.gc()</em> or <em>System.getRuntime.gc()</em>.</p>
+
+
+
+<p><strong>protected void finalize()</strong> method in Object class gets invoked by the daemon thread named GC thread. A subclass can override the finalize method to dispose of system resources or to perform other cleanup.</p>
+
+
+
+<p><strong>What are the algorithms used in GC?</strong></p>
+
+
+
+<p>Mark and sweep Algorithm: Start marking the live (reachable) objects from GC root. In the sweep page, find and reclaim memory of all objects in the heap area that are not live. It is needed to pause the application so that there is no change in objects in the heap during the time when GC does its work.&nbsp;</p>
+
+
+
+<p>Similarly there is a mark-sweep-compact algorithm: This additionally compacts the space in the heap by moving all live objects to the beginning of the memory region so that objects of large memory size can be created.</p>
+
+
+
+<p>Similarly there is a mark and copy algorithm: Here two different memory regions are maintained. After the mark and sweep all live objects are moved to one region. This algo is better as this marking and copying can happen parallely as soon as the object is marked.&nbsp;</p>
+
+
+
+<p><strong>What are the Garbage Collecting strategies in HotSpot JVM?</strong></p>
+
+
+
+<p>Oracle’s HotSpot is by far the most common JVM. All of HotSpot’s garbage collectors implement a generational garbage collection strategy that categorizes objects by age. HotSpot has four garbage collectors:</p>
+
+
+
+<ol><li><strong>Serial:</strong> All garbage collection events are conducted serially in one thread. Compaction is executed after each garbage collection. JVM argument : <em>-XX:+UseSerialGC</em></li><li><strong>Parallel:</strong> Multiple threads are used for minor garbage collection. A single thread is used for major garbage collection and Old Generation compaction. Alternatively, the Parallel Old variant uses multiple threads for major garbage collection and Old Generation compaction. JVM argument: -XX:+UseParallelGC</li><li><strong>CMS (Concurrent Mark Sweep):</strong> Multiple threads are used for minor garbage collection using the same algorithm as Parallel. Major garbage collection is multi-threaded, like Parallel Old, but CMS runs concurrently alongside application processes to minimize “stop the world” events (i.e. when the garbage collector running stops the application). No compaction is performed. JVM argument:   -XX:+UseConcMarkSweepGC</li><li><strong>G1 (Garbage First):</strong> The newest garbage collector is intended as a replacement for CMS. It is parallel and concurrent like CMS, but it works quite differently under the hood compared to the older garbage collectors. JVM argument : -XX:+UseG1GC</li></ol>
+
+
+
+<p><strong>What are the different sections in the JVM heap?</strong></p>
+
+
+
+<p><strong>young generation:</strong></p>
+
+
+
+<p>The <em>Young Generation</em> is where all new objects are allocated and aged. When the young generation fills up, this causes a minor garbage collection. A young generation full of dead objects is collected very quickly. Some survived objects are aged and eventually move to the old generation.</p>
+
+
+
+<p><strong>old generation:</strong></p>
+
+
+
+<p>The <em>Old Generation</em> is used to store long surviving objects. Typically, a threshold is set for young generation object and when that age is met, the object gets moved to the old generation. Eventually the old generation needs to be collected. This event is called a <em>major garbage collection</em></p>
+
+
+
+<p><strong>permanent generation:</strong></p>
+
+
+
+<p>The <em>Permanent generation</em> contains metadata required by the JVM to describe the classes and methods used in the application. The permanent generation is populated by the JVM at runtime based on classes in use by the application.</p>
+
+
+
+<p><em>PermGen has been replaced with Metaspace since Java 8 release.</em></p>
+
+
+
+<p><em>PermSize &amp; MaxPermSize</em> parameters will be ignored now</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh6.googleusercontent.com/h6eU09KnIEOUVYqjCP4JteXk-Wbe84RFlbzmrgB7gzDEPQiQxwweB5YzJpbfrlXDOArSfwyjXM4657AWnROrYpo0pgg_8F9Jj8g81B9YGgSd0-29_LNoradNmRAqfssHD1KKTRrB" alt="enter image description here"/></figure>
+
+
+
+<p><strong>What are JVM arguments for setting maximum and minimum memory in a Java program?</strong></p>
+
+
+
+<p><strong>-Xms : </strong>Heap area size when starting JVM</p>
+
+
+
+<p><strong>-Xmx : </strong>Maximum heap area size</p>
+
+
+
+<p><strong>How to handle OutOfMemoryError?&nbsp;</strong></p>
+
+
+
+<p>This can arise due to 1. system&#8217;s limitation (memory) 2. memory leak.&nbsp;</p>
+
+
+
+<p>Eg:</p>
+
+
+
+<p><em>Exception in thread &#8220;main&#8221; java.lang.OutOfMemoryError: </em><strong><em>Java heap space</em></strong><em>.&nbsp;</em></p>
+
+
+
+<p>The OutOfMemoryError class extends the VirtualMachineError class, which indicates that the JVM is broken, or it has run out of resources and cannot operate. Furthermore, the VirtualMachineError extends the Error class. To find the cause, the text of the exception includes a detailed message at the end. Some of the error text, their meaning and their resolution technique are:&nbsp;</p>
+
+
+
+<ol><li><em>Java heap space:</em> This comes when after garbage collection, the objects are queued for finalization, which occurs at a later time.The <strong>JConsole </strong>management tool can be used to monitor the number of objects that are pending finalization.</li></ol>
+
+
+
+<p>Integer[] array = new Integer[10000 * 10000];</p>
+
+
+
+<p>Solution: Increase the -Xmx1024m value to -Xmx2048m.</p>
+
+
+
+<ol start="2"><li><em>Permgen space is thrown:</em> indicates that the Permanent Generation’s area in memory is exhausted. Below code keeps generating new class and keeps info in permgen.&nbsp;</li></ol>
+
+
+
+<p>import javassist.ClassPool;</p>
+
+
+
+<p>&#8230;.</p>
+
+
+
+<p>static ClassPool cp = ClassPool.getDefault();</p>
+
+
+
+<p>for (int i = 0; i &lt; 1000000000; i++) {</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Class c = cp.makeClass(&#8220;com.abc.Student&#8221; + i).toClass();</p>
+
+
+
+<p>System.out.println(c.getName());&nbsp;</p>
+
+
+
+<p>}&nbsp;</p>
+
+
+
+<p>Solution: java -XX:MaxPermSize=<strong>512m</strong> com.saket.demo.Permgen</p>
+
+
+
+<ol start="3"><li><em>Metaspace: </em>Occurs If metaspace for class metadata is exhausted.</li></ol>
+
+
+
+<p>for (int i = 0; i &lt; 100000; i++)&nbsp;</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Class c = cp.makeClass(&#8220;com.abc.Student&#8221; + i).toClass();&nbsp;</p>
+
+
+
+<p>&nbsp;This code will keep generating new classes and loading their definitions to Metaspace until the space is fully utilized.&nbsp;</p>
+
+
+
+<p>Solution: If MaxMetaSpaceSize, has been set on the command-line, increase its value. -XX:MaxMetaspaceSize=64m</p>
+
+
+
+<ol start="4"><li>There are many other reasons.&nbsp;</li></ol>
+
+
+
+<p>Tools used to detect memory leak: Java VisualVM, Memory Profiler in Intellij (takes snapshots of heap), FusionReactor, JProfiler</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Variables &#038; Methods: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/variables-methods-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2020 12:25:36 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">https://nitinat007.github.io/techystuff_StaticWebsite/?p=325</guid>
+
+					<description><![CDATA[Explain different categories of variables in Java Explain casting variables in java Can a Java compiler cast a variable of short type to char type implicitly? Can an instance variable be reinitialized within a class? How do you convert the&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>Explain different categories of variables in Java</strong></p>
+
+
+
+<p><div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e528d1020672852' value='5f0ff663e528d1020672852'><input type='hidden' id='bg-show-more-text-5f0ff663e528d1020672852' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e528d1020672852' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e528d1020672852' > Variables are of following three categories</p>
+
+
+
+<ol><li>Instance variable: They are directly under the class body and store the state of the object</li><li>Static Variable: They are directly under the class body but also have a static keyword. They are shared between different objects of class.</li><li>Local Variable: These variables are declared within a method. This must be initialized before use.</li></ol>
+
+
+
+<p>Variables are also categorized as&nbsp;</p>
+
+
+
+<ol><li>Primitive: byte(8 bit), short(16 bit), int(32 bit), long(64 bit), float(32 bit), double(64 bit), char(16 bit unsigned integer with range from 0 to [2^16]-1), boolean(1 bit)</li><li>Reference Variable: Array, ArrayList, Variables of any instantiable class. </div></div><a id='bg-showmore-action-5f0ff663e528d1020672852' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a></li></ol>
+
+
+
+<p><strong>Explain casting variables in java</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e52cf3023691587' value='5f0ff663e52cf3023691587'><input type='hidden' id='bg-show-more-text-5f0ff663e52cf3023691587' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e52cf3023691587' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e52cf3023691587' ></p>
+
+
+
+<ol><li>Implicit: Happens from variable of smaller to larger size. This is done by the compiler automatically. Examples are: When an int variable is assigned to a long variable. When a char type variable is assigned to int or long or float or double.</li><li>Explicit: Programmer has to cast variables of larger size to smaller size. There is information loss in the process. Eg of explicit casting:</li></ol>
+
+
+
+<p>long a=22;</p>
+
+
+
+<p>int b=(int)a;<br></div></div><a id='bg-showmore-action-5f0ff663e52cf3023691587' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>Can a Java compiler cast a variable of short type to char type implicitly?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e52f71009603360' value='5f0ff663e52f71009603360'><input type='hidden' id='bg-show-more-text-5f0ff663e52f71009603360' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e52f71009603360' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e52f71009603360' > No. These casting should be done explicitly in java: char to byte, byte to char, char to short, short to char,int to char). This is possibly because char only stores <strong>0</strong> to [2^15]-1 values whereas other variable’s range starts from a -ve value.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/RdkjMapiYRVCffgE31juIvJHvnaasQI7Ram08-pamk4mrj9xVVrH2UIKBwY3FP6wN8Wy_mTJUFTmjrddJB4Hyy2MeO0sn2wfbsOAD9z-CcfeJ-4TtmEOPfJq_9eUYQAazKwHcuNZ" alt=""/></figure>
+
+
+
+<p>Explicit casting is needed for each of these (denoted by arrow)</div></div><a id='bg-showmore-action-5f0ff663e52f71009603360' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>Can an instance variable be reinitialized within a class?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e53213050262437' value='5f0ff663e53213050262437'><input type='hidden' id='bg-show-more-text-5f0ff663e53213050262437' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e53213050262437' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e53213050262437' > No.  This is not allowed.</p>
+
+
+
+<p><em>Class A{</em></p>
+
+
+
+<p><em>int var1;</em></p>
+
+
+
+<p><em>var1=2;</em></p>
+
+
+
+<p><em>}</em> </div></div><a id='bg-showmore-action-5f0ff663e53213050262437' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>How do you convert the following in java?</strong></p>
+
+
+
+<ol><li><strong>Numeric (int,double,float etc) to string&nbsp;</strong></li><li><strong>String to int</strong></li><li><strong>String to boxed integer</strong></li><li><strong>Boxed integer to int</strong></li></ol>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e53476019225944' value='5f0ff663e53476019225944'><input type='hidden' id='bg-show-more-text-5f0ff663e53476019225944' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e53476019225944' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e53476019225944' > String s1 = String.valueOf(35);&nbsp; &nbsp; &nbsp; &nbsp; //convert number to String</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;int i = Integer.parseInt(“10”)&nbsp; // convert string to Integer</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;Integer int1= Integer.valueOf(“25”); //convert string to boxed Integer.</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;Int int2 = (new Integer(23)).intValue(); //boxed Integer to int </div></div><a id='bg-showmore-action-5f0ff663e53476019225944' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is type checking in java?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e536c3056061688' value='5f0ff663e536c3056061688'><input type='hidden' id='bg-show-more-text-5f0ff663e536c3056061688' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e536c3056061688' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e536c3056061688' > Type checking is the process of analysing a program to ensure that the types of expressions are consistent.Type checking happens in a programming language to prevent error. In Java type checking happens at both compile time as well as runtime. Type checking at compile time is called static type checking. Type checking at runtime (eg ArrayIndexOutOfBoundsException, ClassCastException) is called dynamic type checking. Eg</p>
+
+
+
+<p><em>int a = 22.22;</em>&nbsp; // Throws compile time error. Do Implicit cast to prevent this</p>
+
+
+
+<p>&nbsp;&nbsp; <em>user.doAdminTask();</em>&nbsp; &nbsp; &nbsp; //Do Implicit cast to prevent compilation error but this may cause runtime time error (ClassCastException) if user is not an admin User.&nbsp;</p>
+
+
+
+<p>Generics (java 5) was introduced to catch as many errors as possible at compile time itself. Java is a type safe language. C does only static-type checking. Python does only dynamic-type checking. </div></div><a id='bg-showmore-action-5f0ff663e536c3056061688' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What are the rules of method overriding in Java?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e53920072204223' value='5f0ff663e53920072204223'><input type='hidden' id='bg-show-more-text-5f0ff663e53920072204223' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e53920072204223' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e53920072204223' >
+
+
+
+<ol><li>Parameters must be the same. Return type must be of compatible type. In case of primitive, return type can’t be byte if it was int in super class’s method. In case of not primitive return type, the return type in subclass can be the same or subclass type.&nbsp;</li><li>Access level must be same or friendlier&nbsp;</div></div><a id='bg-showmore-action-5f0ff663e53920072204223' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a></li></ol>
+
+
+
+<p><strong>What is method binding in java?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e53b75006786014' value='5f0ff663e53b75006786014'><input type='hidden' id='bg-show-more-text-5f0ff663e53b75006786014' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e53b75006786014' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e53b75006786014' > Method binding means binding a method to method declaration and its implementation. Compiler checks if the reference type has a compatible method. If found then it writes the method signature into the byte code it generates. If not found it throws a compiler error. This is always done by the compiler, irrespective of the methods being static or non static(instance type) . This process is called method &#8211; signature binding. If the method is static, then the compiler decides the method to be invoked (based on reference type). But if the method is of instance type (non static) then the JVM decides the method to be invoked (based on the object type) at runtime. So, for static methods the method binding happens at compile time itself (early binding) . But binding of methods of instance type has to wait till the runtime as it is dependent on object type (late binding). At runtime if the method is found at the object’s reference, the JVM invokes it else it tries to find the methods one step above in the inheritance tree. Polymorphism and method overriding follows late binding.</p>
+
+
+
+<p>Instance methods are late bounded but instance fields (including static) are early bounded.&nbsp;&nbsp;</div></div><a id='bg-showmore-action-5f0ff663e53b75006786014' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>Can we override a static method in Java?&nbsp;</strong></p>
+
+
+
+<p>No. You cannot override a static method because it&#8217;s not bound to an object. Instead, static methods belong to a class and are resolved at compile time using the type of reference variable. But, Yes, you can declare the same static method in a subclass, that will result in a method<strong> hiding</strong> i.e. if you use reference variable of type subclass then the new method will be called, but if you use a reference variable of superclass then old method will be called.</p>
+
+
+
+<p><strong>Can we prevent overriding a method without using the final modifier?&nbsp;</strong></p>
+
+
+
+<p>Yes, you can prevent the method overriding in Java without using the final modifier. You can mark the method private or static, those cannot be overridden. In fact, there are several ways to accomplish this.</p>
+
+
+
+<p><strong>Can we change the return type of method to subclass while overriding?&nbsp;</strong></p>
+
+
+
+<p>Yes, we can do this from Java 5 onward. This feature is known as the covariant method overriding. </p>
+
+
+
+<p><strong>What is Covariant return type in Java?</strong><br>Since Java 5, it is possible to override a method by changing its return type. If a subclass overrides any method by changing the return type of the super class method, then the return type of the overridden method must be a subtype of return type declared in the original method inside the super class. This is the only way by which method can be overridden by changing its return type.</p>
+
+
+
+<p>Here the Super-class method returns a superclass type Object and the subclass method returns a subtype of the superclass method’s return type. By using this, you can directly return the actual type, preventing client-side type casting of the result.&nbsp; e.g. clone() method return java.lang.Object&nbsp;</p>
+
+
+
+<p><strong>Can we override a method which throws a runtime exception without adding throws clause in method declaration?</strong>&nbsp;</p>
+
+
+
+<p>Yes, there is no restriction on unchecked exceptions while overriding. On the other hand, in the case of checked exception, an overriding exception cannot throw a checked exception which comes higher in type hierarchy e.g. if original method is throwing IOException then overriding method cannot throw java.lang.Exception or java.lang.Throwable.</p>
+
+
+
+<p><strong>Can we override a non-static method as static in Java?&nbsp;</strong></p>
+
+
+
+<p>Yes, you can override the non-static method in Java. But it should not be private or final&nbsp;</p>
+
+
+
+<p><strong>Can we overload or override the main method in Java?</strong>&nbsp;</p>
+
+
+
+<p>No, since main() is a static method, you can only overload it, you cannot override it because the static method is resolved at compile time without needing object information hence we cannot override the main method in Java</p>
+
+
+
+<p><strong>How do you convert integer to String?</strong></p>
+
+
+
+<p>valueOf() function is used to convert primitive data types into Strings<br>&nbsp; String s1 = String.valueOf(35);&nbsp; &nbsp; &nbsp; &nbsp; //converting number(int,double,float etc) to String</p>
+
+
+
+<p><strong>What is the difference between the two statements?&nbsp;</strong></p>
+
+
+
+<p><strong>String str1 = ”hello”;</strong></p>
+
+
+
+<p><strong>String str3 = new String(”hello”);</strong></p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;String str1 = ”hello”; //object created in the string pool</p>
+
+
+
+<p>&nbsp;&nbsp;String str2 = ”hello”; //str2 points to the same object in string pool</p>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;String str3 = new String(”hello”); //creates a new object in the heap but outside of string pool and this object points to the literal (“hello”) in the the string pool</p>
+
+
+
+<p><strong>For the given str1, str2, what is the output of the below statements?</strong></p>
+
+
+
+<p><strong>String str1 = ”hello”;</strong></p>
+
+
+
+<p><strong>String str3 = new String(”hello”);</strong>&nbsp;</p>
+
+
+
+<p><strong>&nbsp;&nbsp;str1 == str1 // Statement 1</strong></p>
+
+
+
+<p><strong>&nbsp;&nbsp;str1 == str3 // Statement 2</strong></p>
+
+
+
+<p><strong>&nbsp;&nbsp;str1 == str3.intern() //Statement 3</strong></p>
+
+
+
+<p>Statement 1 returns true</p>
+
+
+
+<p>Statement 2 returns false</p>
+
+
+
+<p>Statement 3 returns true</p>
+
+
+
+<p>&nbsp;intern() checks if there is a string literal in the string pool if yes then it returns the reference else add it and return the reference.</p>
+
+
+
+<p><strong>If </strong>str1=”hello”<strong> and</strong> str4 = ”llo”<strong>, then what is the output of the below statements?</strong></p>
+
+
+
+<p><strong>&nbsp;str1==”he”+”llo”&nbsp;</strong></p>
+
+
+
+<p><strong>&nbsp;str1==”he”+str4&nbsp;</strong></p>
+
+
+
+<p>1st statement returns true</p>
+
+
+
+<p>2nd statement returns false. Since str4 is unknown to the compiler during compile time. If&nbsp; the str4 had a final keyword then this would return true.&nbsp;</p>
+
+
+
+<p><strong>What is the assigned value of the statements below?</strong></p>
+
+
+
+<p><strong>&nbsp;&nbsp;</strong><strong>String str1 = 1+1+”abc”;</strong></p>
+
+
+
+<p><strong>&nbsp;String str2 =”abc”+1+1 ;</strong></p>
+
+
+
+<p>assigns 2abc to str1</p>
+
+
+
+<p>assigns abc11 to str2</p>
+
+
+
+<p><strong>Is it good practice to concatenate String using + operator?</strong></p>
+
+
+
+<p>No. Beware of the performance of + operator on String. Everytime you concatenate using + , the content of each string is copied, a new StringBuilder is created and appended and finally returned by calling toString() method on StringBuilder.&nbsp; It is time consuming O(n2) and space consuming as several string and stringBuilder references are created in the process. Concatenation(append) using StringBuilder is 300X faster than concatenation using + operator in String and 2X faster than StringBuffer. So, use + operator only to combine a few strings.</p>
+
+
+
+<p><strong>What is the significance of toString() method on object?</strong></p>
+
+
+
+<p>The toString() method returns the string representation of the object.</p>
+
+
+
+<p>Whenever we try to print any object of a class,  its toString() method will be called. If we don&#8217;t override the toString() method in the class and call the toString() method, then it would print the object id.</p>
+
+
+
+<p><strong>What is StringBuffer? How is it different from String Class?</strong></p>
+
+
+
+<p>StringBuffer (mutable) class is used when we have to make a lot of modifications to our string. It is also thread safe i.e multiple threads cannot access it simultaneously.</p>
+
+
+
+<p>String class is immutable.&nbsp;</p>
+
+
+
+<p><br>&nbsp;String str = &#8220;hello&#8221;;<br>&nbsp; str.concat(&#8220;world&#8221;);<br>&nbsp; System.out.println(str); &nbsp; // prints: hello<br><br>&nbsp; StringBuffer strB = new StringBuffer(&#8220;hello&#8221;);<br>&nbsp; strB.append(&#8220;wor&#8221;).append(“ld”);<br>&nbsp; System.out.println(strB);&nbsp; &nbsp; // prints: helloworld</p>
+
+
+
+<p><strong>What are commonly used methods of StringBuffer</strong>?</p>
+
+
+
+<p>StringBuffer strB = <strong>new </strong>StringBuffer(<strong>&#8220;abcdef&#8221;</strong>);</p>
+
+
+
+<p>strB.insert(4, <strong>&#8220;world&#8221;</strong>); <em>//abcdworldef</em></p>
+
+
+
+<p>strB.reverse(); <em>//fedlrowdcba</em></p>
+
+
+
+<p>strB.capacity();&nbsp; <em>//capacity of strbuff obj: 22</em></p>
+
+
+
+<p>strB.length(); <em>//11</em></p>
+
+
+
+<p>strB.replace( 6, 15, <strong>&#8220;java&#8221;</strong>); <em>// fedlrojava</em>&nbsp;</p>
+
+
+
+<p>strB.append(&#8220;world&#8221;) <em>// fedlrojavaworld</em></p>
+
+
+
+<p><strong>What is the difference between capacity() and length() methods in StringBuffer?</strong></p>
+
+
+
+<p>capacity()gives the size of the string buffer. length() is how much of that string buffer is currently filled by text.</p>
+
+
+
+<p><strong>What is StringBuilder?</strong></p>
+
+
+
+<p> StringBuilder (from java5) is identical to StringBuffer except for one important difference that it is not synchronized, which means it is not thread-safe. It&#8217;s because StringBuilder methods are not synchronized.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>JVM: Question with Answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/jvm-architecture-question-with-answer/</link>
+		
+		<dc:creator><![CDATA[Admin]]></dc:creator>
+		<pubDate>Tue, 07 Jul 2020 16:52:42 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">http://localhost:8080/?p=196</guid>
+
+					<description><![CDATA[Explain JVM Architecture with diagram What does Method Area Contain? What does JVM stack ,PC and native Stack contain ? How does a JIT compiler help in further speeding of execution? What is&#160;CodeCache in JVM? What happens when this cache&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>Explain JVM Architecture with diagram</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e68185032016371' value='5f0ff663e68185032016371'><input type='hidden' id='bg-show-more-text-5f0ff663e68185032016371' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e68185032016371' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e68185032016371' ></p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh3.googleusercontent.com/0EXbLx2Ch0Lt5PSlAH33mvOLrkOS7pie6LY3pzOIpnk-UlEZWb-6S0E0zpM1OJmIAM7LMYXjlPgM9mE09ElU-D8hUQyufGMrPZ_kZIBjLAO_ESGvTTWMN1FyS-voglw6FxULNoEh" alt=""/></figure>
+
+
+
+<p></div></div><a id='bg-showmore-action-5f0ff663e68185032016371' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What does Method Area Contain?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e68485059526724' value='5f0ff663e68485059526724'><input type='hidden' id='bg-show-more-text-5f0ff663e68485059526724' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e68485059526724' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e68485059526724' >Method Area contains all data pertaining to a class. This includes meta information of a class (class name, superclass name etc). Basically for every object in the heap we have class data in this method area. Before creating any object, the JVM checks in Method Area for the presence of the class data of the type and ( loads the same if not found) returns the reference of the class object. This also contains the byte code of each method, static fields info, runtime constant pool. Method area and heap are shared across all the threads.</p>
+
+
+
+<p>Prior to Java 8, the method area was allocated in permanent generation space (inside JVM memory).&nbsp; From Java 8 onwards Method area is moved to native heap and permanent Generation area is completely removed. What was permGen prior to java 8 is now Metaspace. In metaspace there is no memory max size unlike in permGen where there was a default max size.&nbsp;</div></div><a id='bg-showmore-action-5f0ff663e68485059526724' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What does JVM stack ,PC and native Stack contain ?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e68704057376348' value='5f0ff663e68704057376348'><input type='hidden' id='bg-show-more-text-5f0ff663e68704057376348' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e68704057376348' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e68704057376348' >JVM stack contains order of invocation of methods, state and info of local variables in each method.&nbsp;</p>
+
+
+
+<p>Native Stack contains methods invoked in the native library (of C, C++) as JVM heavily relies on them (say for IO)</p>
+
+
+
+<p>PC is similar to instructor pointer in the native CPUs. This contains the memory address of the next instruction. It is just the pointer to the method (method byte code) in the method area.&nbsp;</p>
+
+
+
+<p>JVM Stack, PC, and native Stack are created per thread.&nbsp;</div></div><a id='bg-showmore-action-5f0ff663e68704057376348' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>How does a JIT compiler help in further speeding of execution?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e68960073560300' value='5f0ff663e68960073560300'><input type='hidden' id='bg-show-more-text-5f0ff663e68960073560300' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e68960073560300' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e68960073560300' >JIT helps in further speeding of the execution. JVM monitors the frequency of each piece of the byte code during execution. Bytecodes which are very frequently executed are referred to as <strong>hot spots</strong>. These hot spots are then given to the JIT compilers (a component of JVM). JIT compiler converts these hotspots into native machine code. This machine code is then cached (CodeCache present in native Area of memory). In future whenever code in hot spots is to be run, instead of interpreting the byte code by interpreter, the corresponding cached machine code is directly run. This results in fast execution. This is also sometimes referred to as dynamic compilation.&nbsp;&nbsp;</div></div><a id='bg-showmore-action-5f0ff663e68960073560300' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is&nbsp;CodeCache in JVM? What happens when this cache gets full?&nbsp;</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e68bb7047187544' value='5f0ff663e68bb7047187544'><input type='hidden' id='bg-show-more-text-5f0ff663e68bb7047187544' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e68bb7047187544' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e68bb7047187544' >JVM JIT generates compiled code and stores that in a memory area called CodeCache. The default maximum size of the CodeCache on most of the platforms is 48M. If any application needs to compile a large number of methods resulting in a huge amount of compiled code then this CodeCache may become full. In such a case the compiler is disabled. Any further compilations are stopped, and a message like this gets logged “<em>CodeCache is full. Compiler has been disabled.</em>” You can increase the size by passing the JVM argument “-XX:ReservedCodeCacheSize=n.”</div></div><a id='bg-showmore-action-5f0ff663e68bb7047187544' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is the lifetime of a type in Java?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e68e06068601122' value='5f0ff663e68e06068601122'><input type='hidden' id='bg-show-more-text-5f0ff663e68e06068601122' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e68e06068601122' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e68e06068601122' >Loading, linking and initialisation are the three stages of lifetime of a type (say class, interface).</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="http://localhost:8080/wp-content/uploads/2020/07/image-3.png" alt="" class="wp-image-213" srcset="https://nitinat007.github.io/techystuff_StaticWebsite/wp-content/uploads/2020/07/image-3.png 620w, https://nitinat007.github.io/techystuff_StaticWebsite/wp-content/uploads/2020/07/image-3-300x117.png 300w" sizes="(max-width: 620px) 100vw, 620px" /></figure>
+
+
+
+<p></div></div><a id='bg-showmore-action-5f0ff663e68e06068601122' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>When is class and interface loaded in java?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e69051065410236' value='5f0ff663e69051065410236'><input type='hidden' id='bg-show-more-text-5f0ff663e69051065410236' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e69051065410236' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e69051065410236' >First time a class is loaded if&nbsp;</p>
+
+
+
+<ol><li>New instance is created</li><li>Invoke static method</li><li>Accessing static field (except compile time constants as values are known at compile time itself)</li><li>A subtype ( here subclass) is loaded</li><li>Run from command line</li><li>Reflection</li></ol>
+
+
+
+<p>First time an interface is loaded also for all the above reasons, except 1st point.</div></div><a id='bg-showmore-action-5f0ff663e69051065410236' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What are class loaders in java?&nbsp;</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e69295032208795' value='5f0ff663e69295032208795'><input type='hidden' id='bg-show-more-text-5f0ff663e69295032208795' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e69295032208795' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e69295032208795' >Class loaders are responsible for<strong> </strong>loading Java classes during runtime dynamically to the JVM.<strong> </strong>They are part of the JRE<strong> . </strong>They are responsible for loading classes into the memory. There are three types of class loader : Application, Extension, Bootstrap. Eg</p>
+
+
+
+<p>Class loader of <strong>this</strong> class:sun.misc.Launcher$<strong>AppClassLoader</strong>@18b4aac2</p>
+
+
+
+<p>Class loader of <strong>Logging</strong>:sun.misc.Launcher$<strong>ExtClassLoader</strong>@3caeaf62</p>
+
+
+
+<p>Class loader of <strong>ArrayList</strong>:null&nbsp;</p>
+
+
+
+<p>Bootstrap class loader is written in native language, not java. Bootstrap class loader serves as a parent of all the other <em>ClassLoader</em> instances.The <em>java.lang.ClassLoader.loadClass()</em> method is responsible for loading the class definition into runtime. It tries to load the class based on a fully qualified name whenever the JVM requests for the class. If this parent class loader doesn’t find the class, then the child class will call <em>java.net.URLClassLoader.findClass()</em> method to look for classes in the file system itself. If the last child class loader isn&#8217;t able to load the class either, it throws <em>java.lang.NoClassDefFoundError</em> or <em>java.lang.ClassNotFoundException.</em></div></div><a id='bg-showmore-action-5f0ff663e69295032208795' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is class Object?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e694e6008853695' value='5f0ff663e694e6008853695'><input type='hidden' id='bg-show-more-text-5f0ff663e694e6008853695' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e694e6008853695' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e694e6008853695' ><strong>Class object</strong> contains the meta information of the class. JVM creates an object of a class with the class object information. To get information about the class these methods are useful. like getName(), getSuperClass(), isInterface(), getInterfaces(), getClassLoader() → Class Loader that loaded this class&nbsp; etc.&nbsp;</p>
+
+
+
+<p>Class, Interface, primitive, void, array all of them have class object.</div></div><a id='bg-showmore-action-5f0ff663e694e6008853695' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What are the steps involved in Class Loading?</strong></p>
+
+
+
+<p><div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e69739057995980' value='5f0ff663e69739057995980'><input type='hidden' id='bg-show-more-text-5f0ff663e69739057995980' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e69739057995980' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e69739057995980' >Classes found via less trustworthy Class Loader go through high level of security checks by JVM.</p>
+
+
+
+<p><strong>Verification Step: </strong>&nbsp;This is done by the bytecode verifier which verifies if the&nbsp; bytecode is not tampered/malformed. This also does semantics checks (eg no illegal method overloading, final classes are not sub-classed etc)</p>
+
+
+
+<p><strong>Preparation Step: </strong>Allocated memory for static fields and initialized with default value. Throws OutOfMemoryError if no space is left. If a class is loaded because an instance of it is created then memory is allocated for this instance object as well (done only after all static fields are initialized). All the static fields across the class hierarchy are initialized before any instance fields are initialized.&nbsp;&nbsp;</p>
+
+
+
+<p><strong>Resolution Step:</strong> This is an optional step. This step resolves and loads the classes/interfaces that are referenced in the class. These references are stored in the Constant pool (this also has compile-time constants and string literals. Constant pools can be seen in .class file when disassembled using disassembler). Resolution also ensures that class has permissions to access them. At runtime, these references are replaced by actual references in the memory. This is called dynamic linking. Dynamic linking can happen in two ways</p>
+
+
+
+<ol><li>Eager loading: This happens just after the preparation step. All referenced classes are loaded before current class is loaded.</li><li>Lazy loading: This happens after the initialization step. This is on demand which means that this happens when a statement that includes the references are actually executed. JVM implements lazy loading.</div></div><a id='bg-showmore-action-5f0ff663e69739057995980' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a></li></ol>
+
+
+
+<p><strong>What is initialization in the lifetime of a type?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e69983082925199' value='5f0ff663e69983082925199'><input type='hidden' id='bg-show-more-text-5f0ff663e69983082925199' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e69983082925199' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e69983082925199' >Initialization step initializes static fields with user defined initial values (as previous step had assigned a default values). Also note that an interface is initialized only if one of the static methods is accessed or one of the non-compiled time fields is accessed (via a constructor or method).</div></div><a id='bg-showmore-action-5f0ff663e69983082925199' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>Explain the Class Loading process</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e69bd8047918703' value='5f0ff663e69bd8047918703'><input type='hidden' id='bg-show-more-text-5f0ff663e69bd8047918703' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e69bd8047918703' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e69bd8047918703' >First rt.jar (rt means runtime which includes core java library) present in jdk/jre/lib is opened and all classes (like object, Serializable, String etc) are loaded by bootstrap class loader.&nbsp; After this the actual class (inside com.&lt;package&gt;.<strong><em>jvm </em></strong>) which contains the main method is loaded. Static initializer block in this class will run first. Instance initializer block at this point is not initialized yet as instance has not been created yet. Next the main (static) method is invoked. Inside the main method, some other class might be loaded. If there is a statement accessing the static field of another class, then also another class is not loaded as the static field is compile time constant. If there is a statement accessing a non static field of another class then the interface, super class and this class (containing the field) is loaded in the same order.&nbsp; Classes/interfaces might be loaded without actually initializing. You know that an&nbsp; interface is loaded either if one of the fields which is not a compile time constant is used or a static method is invoked. Now if these classes/methods use another methods or fields from another class then lazy loading of these classes happen. Before a constructor of any class is called its instance initializer block will be called. Note that accessing compile time constants from a class will not load the class as its value known from compile time itself.&nbsp;</p>
+
+
+
+<p>You can add an argument<em> -verbose:class</em> to the program to see the classes loaded when a program starts running.</div></div><a id='bg-showmore-action-5f0ff663e69bd8047918703' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Basic Java: Question with answer</title>
+		<link>https://nitinat007.github.io/techystuff_StaticWebsite/interview-questions-on-java/</link>
+					<comments>https://nitinat007.github.io/techystuff_StaticWebsite/interview-questions-on-java/#comments</comments>
+		
+		<dc:creator><![CDATA[Nitin Kumar]]></dc:creator>
+		<pubDate>Wed, 19 Feb 2020 14:36:58 +0000</pubDate>
+				<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Java Interview Questions]]></category>
+		<category><![CDATA[QA]]></category>
+		<category><![CDATA[SDE]]></category>
+		<category><![CDATA[SDET]]></category>
+		<guid isPermaLink="false">http:/?p=1</guid>
+
+					<description><![CDATA[What is Java?&#160; What is low-level and high-level language? What are the tasks of a Compiler?&#160; Explain compilation and interpretation in Java. What is the difference between statically typed language and dynamically typed language? How does a java program run&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p><strong>What is Java?</strong>&nbsp;</p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7b352036474857' value='5f0ff663e7b352036474857'><input type='hidden' id='bg-show-more-text-5f0ff663e7b352036474857' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7b352036474857' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7b352036474857' >Java is General Purpose ( used in developing a wide variety of applications of different domain), Object-Oriented, Platform independent (write once and run anywhere), Concurrent (multiple work at same time) , very fast and secure programming language. It has automatic memory management (GC), a rich API library, and is free for developers. James Gosling is the father of java. </p>
+
+
+
+<p>Java Software family has three members, namely, Java SE, Java EE, Java ME.</div></div><a id='bg-showmore-action-5f0ff663e7b352036474857' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is low-level and high-level language?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7b6b7004710059' value='5f0ff663e7b6b7004710059'><input type='hidden' id='bg-show-more-text-5f0ff663e7b6b7004710059' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7b6b7004710059' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7b6b7004710059' >Low-level languages are</p>
+
+
+
+<ol><li>Machine Language (language that a machine understands) is a set of instructions. CPUs understand these instructions. Any program is a set of instructions. Each instruction has a binary format (0s and 1s). </li><li>Assembly Language is a language much easier to write than the machine code. (eg: add $s0 $s1 ). Used to write instructions. An assembler translates assembly language into machine language.</li></ol>
+
+
+
+<p>High-level language Language:  Developers felt the need to create a language much easier to write and to hide low-level details(eg memory allocations). They use English like words. Eg: C, C++, Java.</p>
+
+
+
+<p>In High-level language Compiler converts source code to an intermediate code such as machine code(in c) / byte code(in java). Execution happens directly by CPU in a separate stack.  There are few compilers that convert one language(sourceCode) to another, called transcompilers (eg: ClosureScript to JavaScript). </div></div><a id='bg-showmore-action-5f0ff663e7b6b7004710059' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What are the tasks of a Compiler?&nbsp;</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7b928015275693' value='5f0ff663e7b928015275693'><input type='hidden' id='bg-show-more-text-5f0ff663e7b928015275693' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7b928015275693' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7b928015275693' ></p>
+
+
+
+<ol><li>&nbsp;Verify Syntax (eg statements end with ; ) and semantics (final class is not extended)</li><li>&nbsp;Code Optimisation&nbsp;</li><li>&nbsp;Generate Machine code.</li></ol>
+
+
+
+<p>The interpreter converts source code directly into results. It simulates a CPU. Similar to CPU, it works in fetch-and-execute cycle.</div></div><a id='bg-showmore-action-5f0ff663e7b928015275693' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>Explain compilation and interpretation in Java.</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7bcb6087393689' value='5f0ff663e7bcb6087393689'><input type='hidden' id='bg-show-more-text-5f0ff663e7bcb6087393689' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7bcb6087393689' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7bcb6087393689' >Java uses both compilation( for fast execution) &amp; interpretation (to achieve platform independence). The compiler first converts source code to byte code (which is not machine code but an intermediate code) and then the interpreter interprets the byte code to get the desired result. The Java interpreter is JVM. JIT (Just-in-time) compilation happens at runtime by JVM which helps in running the program faster. Languages like Groovy &amp; Scala also run on JVM.  </p>
+
+
+
+<p>JVM is an abstract computing machine. Like CPU (which reads instruction as machine code and executes it) it also reads instruction set as byte code. It also manipulates memory at runtime.</div></div><a id='bg-showmore-action-5f0ff663e7bcb6087393689' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is the difference between statically typed language and dynamically typed language?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7bf65059047290' value='5f0ff663e7bf65059047290'><input type='hidden' id='bg-show-more-text-5f0ff663e7bf65059047290' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7bf65059047290' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7bf65059047290' >Java is Statically typed.<strong> </strong>A<strong> </strong>variable of one type is assigned a value of another type then there will be a compilation error. Like an integer variable can not store a character. JavaScript is a dynamically typed language. The same variable can store numeric at some point of time and a text value at other point of time.</div></div><a id='bg-showmore-action-5f0ff663e7bf65059047290' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>How does a java program run ?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7c1b6027039285' value='5f0ff663e7c1b6027039285'><input type='hidden' id='bg-show-more-text-5f0ff663e7c1b6027039285' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7c1b6027039285' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7c1b6027039285' >Let&#8217;s say we have a program called ‘Hello.class’. When we run the command ‘java Hello’, an instance of JVM is created and loaded into memory. JVM then in turn loads ‘Hello.class’ program into memory and executes it. One JVM instance runs only one java application.</p>
+
+
+
+<p>When JVM is created, a chunk of memory (called runtime data areas or JVM memory) is obtained from the underlying operating system. In order to load the ‘Hello.class’ , the JVM invokes a component called class loader. The class loader’s responsibility is to locate the Hello.class and load the corresponding byte code into memory. JVM Memory has two important areas: heap and method area. Byte code once loaded is verified by a component called the bytecode verifier. Bytecode verifier verifies whether the loaded byte code is not corrupted or tampered by hackers. Once bytecode verification passes, the bytecode is passed to the execution engine (which includes JIT compiler and interpreter). This interpreter helps in achieving platform independence and JIT compiler help in very fast execution speed. Along with this, we have a component called Garbage collector (GC) which has the responsibility of managing the memory of the JVM. GC reclaims the memory no longer in use. There is a component called security manager, which ensures security, one of the core responsibilities of JVM. The security manager can help in running code in a more restricted environment (like preventing code to access file systems) called Sandbox.</div></div><a id='bg-showmore-action-5f0ff663e7c1b6027039285' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is JDK and JRE?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7c404061206165' value='5f0ff663e7c404061206165'><input type='hidden' id='bg-show-more-text-5f0ff663e7c404061206165' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7c404061206165' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7c404061206165' >JDK means Java Development Kit which includes development Tools, JVM, Java API.</p>
+
+
+
+<p>There are many implementations of JDK in the market. (eg Oracle JDK, Oracle OpenJDK, Red Hat’s Open JDK, etc) . All the implementation originated from a project called Open JDK, originally owned by Oracle but later made open source so that anyone can contribute. The source code of OpenJDK includes API and JVM called HotSpot.<br>JRE includes JVM, Java API. Separate JRE was offered only till Java SE 10. After SE 10, oracle started to provide a tool called <strong>jlink</strong> which can be used to create a custom JRE. This custom JRE might be smaller in size than regular JRE. Instead of creating custom JRE, one can always use JDK as it always has JRE.</div></div><a id='bg-showmore-action-5f0ff663e7c404061206165' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>How is Java platform independent?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7c640047366937' value='5f0ff663e7c640047366937'><input type='hidden' id='bg-show-more-text-5f0ff663e7c640047366937' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7c640047366937' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7c640047366937' > Bytecode generated by the compiler is common across all devices. JVM has Interpreter which converts bytecode into machine level code which varies from OS to OS. Note that Interpreter is different across platforms.</div></div><a id='bg-showmore-action-5f0ff663e7c640047366937' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What things do you consider for creating a class ?</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7c880054881177' value='5f0ff663e7c880054881177'><input type='hidden' id='bg-show-more-text-5f0ff663e7c880054881177' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7c880054881177' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7c880054881177' >Class has variables (representing state), methods( representing behaviour). A variable represents what a class knows and a method represents what a class can do.</div></div><a id='bg-showmore-action-5f0ff663e7c880054881177' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What are the</strong> <strong>different ways to create an object in Java</strong>?</p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7cac7016138584' value='5f0ff663e7cac7016138584'><input type='hidden' id='bg-show-more-text-5f0ff663e7cac7016138584' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7cac7016138584' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7cac7016138584' >
+
+
+
+<ol><li>Using new keyword</li></ol>
+
+
+
+<p> Student std = new Student();</p>
+
+
+
+<ol start="2"><li>Class.forName which loads class. Then call newInstance() on the loaded class.</li></ol>
+
+
+
+<p>&nbsp;&nbsp;Class cls = Class.forName(&#8220;NewInstanceExample&#8221;);</p>
+
+
+
+<p>&nbsp;&nbsp;NewInstanceExample obj =(NewInstanceExample) cls.newInstance();</p>
+
+
+
+<ol start="3"><li>clone() method: Class should implement Cloneable and create method clone(). Just call objectOfClass.clone() to clone the object.</li><li>Deserialize an object. </div></div><a id='bg-showmore-action-5f0ff663e7cac7016138584' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a></li></ol>
+
+
+
+<p><strong>Explain object creation process in java</strong></p>
+
+
+
+<div class="bg-margin-for-link"><input type='hidden' bg_collapse_expand='5f0ff663e7cd06001708678' value='5f0ff663e7cd06001708678'><input type='hidden' id='bg-show-more-text-5f0ff663e7cd06001708678' value='View Answer'><input type='hidden' id='bg-show-less-text-5f0ff663e7cd06001708678' value='Hide Answer'><div id='bg-showmore-hidden-5f0ff663e7cd06001708678' > Whenever a new class instance is created, memory space is allocated for it with room for all the instance variables declared in the class type and all the instance variables declared in each superclass of the class type, including all the instance variables that may be hidden. If there is not sufficient space available to allocate memory for the object, then the creation of the class instance completes abruptly with an <strong>OutOfMemoryError</strong> (does not throw null). Otherwise, all the instance variables in the new object, including those declared in superclasses, are initialized to their default values.</div></div><a id='bg-showmore-action-5f0ff663e7cd06001708678' class='bg-showmore-plg-link bg-arrow '  style=" color:#2693ba;;" href='#'>View Answer</a>
+
+
+
+<p><strong>What is the difference between Virtual Machine and Sandboxed Environment?</strong></p>
+
+
+
+<p>A <strong>virtual machine</strong> provides a simulated computer<strong> </strong>that <em>guest</em> applications<strong> </strong>will see as the whole system. It is not necessarily <em>sandboxed</em> since it can provide write access to any shared location on the <em>host</em> computer.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/yA7jIy2qi3CWMIEbkTF2QH59J0q2sHSjA6lwRZ6TiU4yrB1SDED7bOG75FRQtAtWfCiJ4vifjmrw6yyyH9nDPs6MrOLyauYsUS4qzd52xsmURcgvXHmzgw1u_9benU98hCoaryTW" alt=""/></figure>
+
+
+
+<p>A <strong>sandboxed environment</strong> is not necessarily virtualized: it does not have to simulate a computer, just restrict access permissions for running applications. Javascript within your browser provides such an environment without virtualization.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/nni-KrhSMxxUJ3Wo_RBiMHsK8DpSC8KSb9YK_86weLbhUbEOZxKjYGjgoDItb5IstBz9Bm2HOr5D2HxKoI3M3hJGFqm52XjKUPTTRLXOD-cg8xeBttKJUG9uZM82X3euUUhR3EYF" alt=""/></figure>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://nitinat007.github.io/techystuff_StaticWebsite/interview-questions-on-java/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
